@@ -1,0 +1,67 @@
+seml:
+  project_root_dir: /path/patch_level_dp
+  executable: seml/scripts/run_training_experiment.py
+  output_dir: seml/output/logs/pspnet_cityscapes
+  name: pspnet_cityscapes_experiments
+
+slurm:
+  - experiments_per_job: 1
+    sbatch_options:
+      gres: gpu:1
+      cpus-per-task: 8
+      mem: 16G
+      time: 00-23:59     # max time, D-HH:MM
+      partition: gpu_a100
+
+fixed:
+  model_name: "pspnet"
+  dataset_name: "cityscapes"
+  dataset_root: "/path/cityscapes"
+  
+  max_physical_batch_size: 2
+  clip_norm: 2.0
+  batch_size: 200
+  num_epochs: 100
+  lr: 0.02
+  
+  privacy_patch_size: [10, 10]
+  crop_size: 505
+  padding: 0
+  
+  check_val_every_n_epoch: 2
+  num_sanity_val_steps: 0
+  checkpoint_dir: "/path/checkpoints"
+
+  gaussian_augmentation: False # if set to True, baseline_privacy must be False
+
+grid:
+  epsilon:
+    type: choice
+    options:
+      - 1
+      - 5
+      - 10
+      - 15
+      - 20
+      - 30
+      - 40
+      - 50
+      - 60
+      - 70
+      - 80
+      - 90
+      - 100
+
+  seed:
+    type: choice
+    options:
+      - 10
+      - 20
+      - 30
+      - 516
+
+  baseline_privacy:
+    type: choice
+    options:
+      - False
+      - True
