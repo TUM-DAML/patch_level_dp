@@ -28,14 +28,13 @@ After computing all results, you can use the scripts in `plotting` to recreate t
 ## Cite
 Please cite our paper if you use this code in your own work:
 ```
-@article{
-durmaz2025amplified,
-title={Amplified Patch-Level Differential Privacy for Free via
-Random Cropping},
-author={Kaan Durmaz and Jan Schuchardt and Sebastian Schmidt and
-Stephan G{\"u}nnemann},
-journal={Transactions on Machine Learning Research},
-year={2025},
-url={https://openreview.net/forum?id=pSWuUF8AVP}
+@article{durmaz2025amplified,
+    title={Amplified Patch-Level Differential Privacy for Free via
+    Random Cropping},
+    author={Kaan Durmaz and Jan Schuchardt and Sebastian Schmidt and
+    Stephan G{\"u}nnemann},
+    journal={Transactions on Machine Learning Research},
+    year={2025},
+    url={https://openreview.net/forum?id=pSWuUF8AVP}
 }
 ```
